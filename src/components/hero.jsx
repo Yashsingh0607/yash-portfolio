@@ -19,9 +19,13 @@ export default function Hero() {
           cybersecurity, and problem solving.
         </p>
 
-        <button className="mt-8 bg-sky-500 px-6 py-3 rounded-lg">
-          View Projects
-        </button>
+       
+       <a
+  href="#projects"
+  className="inline-block mt-8 bg-sky-500 px-6 py-3 rounded-lg"
+>
+  View Projects
+</a>
       </div>
     </section>
   );

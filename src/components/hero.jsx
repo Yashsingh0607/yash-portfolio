@@ -7,7 +7,7 @@ export default function Hero() {
         </p>
 
         <h1 className="text-7xl font-bold text-white">
-          Yash Vardhan Singh
+          Shiavm Singh
         </h1>
 
         <h2 className="text-3xl mt-4 text-slate-300">

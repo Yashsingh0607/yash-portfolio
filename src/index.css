@@ -1,0 +1,335 @@
+@font-face {
+  font-family: "Cormorant";
+  src: url("./assets/fonts/CormorantGaramond-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}@import "tailwindcss";
+@theme {
+  --font-heading: "Cormorant", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ============================================
+   PORTFOLIO V43 DESIGN SYSTEM
+============================================ */
+
+:root {
+  /* Fonts */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Luxury Theme */
+  --bg: #05060a;
+  --bg-secondary: #0b0e14;
+  --bg-card: #10131b;
+
+  --gold: #d4a017;
+  --gold-light: #f4c95d;
+  --gold-dark: #9b7200;
+
+  --red: #8b1e2d;
+  --red-glow: #b6243a;
+
+  --text: #f5f5f5;
+  --text-muted: #a6a6a6;
+
+  --border: rgba(212, 160, 23, 0.18);
+
+  --radius: 22px;
+
+  --shadow-gold: 0 0 45px rgba(212, 160, 23, 0.12);
+  --shadow-red: 0 0 60px rgba(182, 36, 58, 0.12);
+
+  --transition: 300ms ease;
+}
+
+/* ============================================
+   RESET
+============================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   BACKGROUND
+============================================ */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  background:
+    radial-gradient(circle at 15% 15%,
+      rgba(212, 160, 23, 0.08),
+      transparent 28%),
+
+    radial-gradient(circle at 85% 20%,
+      rgba(182, 36, 58, 0.08),
+      transparent 25%),
+
+    radial-gradient(circle at 50% 85%,
+      rgba(212,160,23,.05),
+      transparent 35%),
+
+    #05060a;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+
+  background-size: 80px 80px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text);
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* ============================================
+   IMAGES
+============================================ */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ============================================
+   SELECTION
+============================================ */
+
+::selection {
+  background: var(--gold);
+  color: black;
+}
+
+/* ============================================
+   SCROLLBAR
+============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05060a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    var(--gold),
+    var(--red)
+  );
+
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}
+
+/* ============================================
+   COMMON UTILITIES
+============================================ */
+
+.section {
+  width: min(1400px, 92%);
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding: 120px 0;
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.heading-font {
+  font-family: var(--font-heading);
+}
+
+.body-font {
+  font-family: var(--font-body);
+}
+
+/* ============================================
+   CARD
+============================================ */
+
+.luxury-card {
+  background: var(--bg-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  transition: var(--transition);
+
+  box-shadow: var(--shadow-gold);
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(212,160,23,.4);
+
+  box-shadow:
+    var(--shadow-gold),
+    var(--shadow-red);
+}
+
+/* ============================================
+   BUTTON
+============================================ */
+
+.gold-btn {
+  padding: 14px 28px;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--gold);
+
+  background: transparent;
+
+  color: var(--gold);
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.gold-btn:hover {
+  background: var(--gold);
+
+  color: black;
+
+  box-shadow: 0 0 35px rgba(212,160,23,.35);
+}
+
+/* ============================================
+   GLOW HELPERS
+============================================ */
+
+.gold-glow {
+  box-shadow: 0 0 40px rgba(212,160,23,.25);
+}
+
+.red-glow {
+  box-shadow: 0 0 40px rgba(182,36,58,.2);
+}
+
+/* ============================================
+   ANIMATIONS
+============================================ */
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: .6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .6;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.rotate-slow {
+  animation: rotateSlow 35s linear infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}

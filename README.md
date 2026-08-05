@@ -4,7 +4,7 @@ A modern, responsive developer portfolio built with **React**, **Vite**, and **T
 
 ## 🌐 Live Demo
 
-🔗 yash-portfolio-phi-ashy.vercel.app
+🔗 https://yash-portfolio-phi-ashy.vercel.app
 
 ---
 

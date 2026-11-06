@@ -57,7 +57,6 @@ export default function Certificates() {
             title="Introduction to Machine Learning"
             issuer="NPTEL"
             badge="Completed"
-            score="52%"
           />
 
         </div>

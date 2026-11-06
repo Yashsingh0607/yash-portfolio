@@ -54,6 +54,8 @@ export default function Certificates() {
           />
 
           <CertificateCard
+            image="/certificates/introtoml.png"
+            pdf="/certificates/introtoml.pdf"
             title="Introduction to Machine Learning"
             issuer="NPTEL"
             badge="Completed"

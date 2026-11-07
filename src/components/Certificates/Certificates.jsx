@@ -58,7 +58,7 @@ export default function Certificates() {
             pdf="/certificates/introtoml.pdf"
             title="Introduction to Machine Learning"
             issuer="NPTEL"
-            badge="Completed"
+            badge="Certified"
           />
 
         </div>

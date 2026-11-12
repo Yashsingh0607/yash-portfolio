@@ -1,99 +1,93 @@
+@import "tailwindcss";
+
+/* Fonts bundled with the project */
 @font-face {
-  font-family: "Cormorant";
+  font-family: "Cormorant Garamond";
+  src: url("./assets/fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./assets/fonts/CormorantGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./assets/fonts/CormorantGaramond-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
   src: url("./assets/fonts/CormorantGaramond-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
-}@import "tailwindcss";
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./assets/fonts/GeneralSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./assets/fonts/GeneralSans-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("./assets/fonts/GeneralSans-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-heading: "Cormorant", serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-}
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-/* ============================================
-   PORTFOLIO V43 DESIGN SYSTEM
-============================================ */
-
-:root {
-  /* Fonts */
-  --font-heading: "Playfair Display", serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-
-  /* Luxury Theme */
-  --bg: #05060a;
-  --bg-secondary: #0b0e14;
-  --bg-card: #10131b;
-
-  --gold: #d4a017;
-  --gold-light: #f4c95d;
-  --gold-dark: #9b7200;
-
-  --red: #8b1e2d;
-  --red-glow: #b6243a;
-
-  --text: #f5f5f5;
-  --text-muted: #a6a6a6;
-
-  --border: rgba(212, 160, 23, 0.18);
-
-  --radius: 22px;
-
-  --shadow-gold: 0 0 45px rgba(212, 160, 23, 0.12);
-  --shadow-red: 0 0 60px rgba(182, 36, 58, 0.12);
-
-  --transition: 300ms ease;
-}
-
-/* ============================================
-   RESET
-============================================ */
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --color-ink: #05060a;
+  --color-panel: #0b0e14;
+  --color-line: rgb(212 160 23 / 0.2);
+  --color-gold: #d4a017;
+  --color-gold-soft: #f4c95d;
+  --color-wine: #8b1e2d;
+  --color-wine-glow: #b6243a;
+  --color-name-red: #962239;
+  --color-fg: #f5f5f5;
+  --color-mute: #a6a6a6;
 }
 
 html {
   scroll-behavior: smooth;
+  background: #05060a;
 }
 
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
-
-/* ============================================
-   BACKGROUND
-============================================ */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -3;
-
   background:
-    radial-gradient(circle at 15% 15%,
-      rgba(212, 160, 23, 0.08),
-      transparent 28%),
-
-    radial-gradient(circle at 85% 20%,
-      rgba(182, 36, 58, 0.08),
-      transparent 25%),
-
-    radial-gradient(circle at 50% 85%,
-      rgba(212,160,23,.05),
-      transparent 35%),
-
+    radial-gradient(circle at 15% 15%, rgb(212 160 23 / 0.1), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgb(182 36 58 / 0.1), transparent 27%),
+    radial-gradient(circle at 50% 85%, rgb(212 160 23 / 0.06), transparent 36%),
     #05060a;
 }
 
@@ -103,233 +97,161 @@ body::after {
   inset: 0;
   z-index: -2;
   pointer-events: none;
-
   background-image:
-    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-
+    linear-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.018) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
-/* ============================================
-   TYPOGRAPHY
-============================================ */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--text);
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05060a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-gold), var(--color-wine));
+  border-radius: 50px;
 }
 
-p {
-  color: var(--text-muted);
-  line-height: 1.8;
+body {
+  background: transparent;
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
 }
 
-button,
-input,
-textarea {
-  font-family: inherit;
+::selection {
+  background: var(--color-gold);
+  color: #000;
 }
-
-/* ============================================
-   IMAGES
-============================================ */
 
 img {
   display: block;
   max-width: 100%;
 }
 
-/* ============================================
-   SELECTION
-============================================ */
-
-::selection {
-  background: var(--gold);
-  color: black;
+noscript {
+  display: block;
+  padding: 2rem;
+  color: var(--color-fg);
 }
 
-/* ============================================
-   SCROLLBAR
-============================================ */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #05060a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    var(--gold),
-    var(--red)
-  );
-
-  border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-light);
-}
-
-/* ============================================
-   COMMON UTILITIES
-============================================ */
-
-.section {
-  width: min(1400px, 92%);
-  margin-inline: auto;
-}
-
-.section-padding {
-  padding: 120px 0;
-}
-
-.gold-text {
-  color: var(--gold);
-}
-
-.mono {
-  font-family: var(--font-mono);
-}
-
-.heading-font {
-  font-family: var(--font-heading);
-}
-
-.body-font {
-  font-family: var(--font-body);
-}
-
-/* ============================================
-   CARD
-============================================ */
-
-.luxury-card {
-  background: var(--bg-card);
-
-  border: 1px solid var(--border);
-
-  border-radius: var(--radius);
-
-  transition: var(--transition);
-
-  box-shadow: var(--shadow-gold);
-}
-
-.luxury-card:hover {
-  transform: translateY(-6px);
-
-  border-color: rgba(212,160,23,.4);
-
-  box-shadow:
-    var(--shadow-gold),
-    var(--shadow-red);
-}
-
-/* ============================================
-   BUTTON
-============================================ */
-
-.gold-btn {
-  padding: 14px 28px;
-
-  border-radius: 999px;
-
-  border: 1px solid var(--gold);
-
-  background: transparent;
-
-  color: var(--gold);
-
-  cursor: pointer;
-
-  transition: var(--transition);
-}
-
-.gold-btn:hover {
-  background: var(--gold);
-
-  color: black;
-
-  box-shadow: 0 0 35px rgba(212,160,23,.35);
-}
-
-/* ============================================
-   GLOW HELPERS
-============================================ */
-
-.gold-glow {
-  box-shadow: 0 0 40px rgba(212,160,23,.25);
-}
-
-.red-glow {
-  box-shadow: 0 0 40px rgba(182,36,58,.2);
-}
-
-/* ============================================
-   ANIMATIONS
-============================================ */
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
+/* One page-load moment: the hero rises in once. */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0px);
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
   }
 }
 
-@keyframes pulseGlow {
-  0% {
-    opacity: .6;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: .6;
-  }
-}
-
-@keyframes rotateSlow {
-  from {
-    transform: rotate(0deg);
-  }
-
+/* Orbit: slow rotation, contained inside its own box. */
+@keyframes orbit-spin {
   to {
     transform: rotate(360deg);
   }
 }
-
-.float {
-  animation: float 6s ease-in-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .orbit-spin {
+    animation: orbit-spin 220s linear infinite;
+  }
 }
 
-.rotate-slow {
-  animation: rotateSlow 35s linear infinite;
+/* Orbit satellites and pulsing core */
+@keyframes orbit-counter {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes core-pulse {
+  0%, 100% {
+    box-shadow: 0 0 60px rgb(212 160 23 / 0.8), 0 0 0 0 rgb(212 160 23 / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 90px rgb(212 160 23 / 1), 0 0 0 22px rgb(212 160 23 / 0);
+  }
+}
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .orbit-fast {
+    animation: orbit-spin 60s linear infinite;
+  }
+  .orbit-slow-rev {
+    animation: orbit-counter 110s linear infinite;
+  }
+  .core-pulse {
+    animation: core-pulse 3.2s ease-in-out infinite;
+  }
+  .cursor-blink {
+    animation: cursor-blink 1s steps(1) infinite;
+  }
 }
 
-.pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.85s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* Stack ticker */
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee 55s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+/* Hero art box: square, but never taller than the screen, so the buttons stay in view. */
+.hero-box {
+  width: 100%;
+  max-width: 720px;
+}
+@media (min-width: 1024px) {
+  .hero-box {
+    width: min(100%, calc(100svh - 9rem));
+  }
 }

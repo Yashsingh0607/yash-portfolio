@@ -6,7 +6,7 @@ export const profile = {
   email: "yashvardhansingh234679@gmail.com",
   phone: "+91 9305125469",
   phoneHref: "tel:+919305125469",
-  resume: "/resume.pdf",
+  resume: "/resume-2026.pdf",
 };
 
 export const links = {

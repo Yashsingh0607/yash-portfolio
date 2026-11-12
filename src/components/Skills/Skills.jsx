@@ -1,91 +1,41 @@
-import {
-  Code2,
-  Database,
-  Shield,
-  Wrench,
-} from "lucide-react";
+import { Code2, Database, Globe, Shield, Wrench } from "lucide-react";
+import Section from "../Section";
+import { cardClass, chipClass } from "../ui";
+import { skills } from "../../data/portfolio";
 
-import SkillCard from "./SkillCard";
+const icons = {
+  Languages: Code2,
+  Web: Globe,
+  "Core CS": Database,
+  Security: Shield,
+  Tools: Wrench,
+};
 
 export default function Skills() {
   return (
-    <section
-  id="skills"
-  className="relative mt-20 pt-44 pb-32"
->
-      <div className="mx-auto w-[92%] max-w-[1400px]">
-
-        {/* Heading */}
-
-        <div className="mb-16">
-          <p className="mb-3 text-[14px] font-semibold tracking-[8px] text-[#D4A017]">
-            SKILLS
-          </p>
-
-          <h2
-            style={{ fontFamily: "var(--font-heading)" }}
-            className="text-[54px] leading-none"
-          >
-            Technical
-            <span className="text-[#D4A017]"> Expertise</span>
-          </h2>
-        </div>
-
-        {/* Cards */}
-
-        <div className="grid grid-cols-2 gap-8">
-
-          <SkillCard
-            icon={Code2}
-            title="Programming"
-            description="Building scalable software using Java and modern development practices."
-            skills={[
-              "Java",
-              "Python",
-              "OOP",
-              "Problem Solving",
-            ]}
-          />
-
-          <SkillCard
-            icon={Database}
-            title="Core Computer Science"
-            description="Strong understanding of fundamental computer science concepts."
-            skills={[
-              "DSA",
-              "Operating Systems",
-              "DBMS",
-              "Computer Networks",
-            ]}
-          />
-
-          <SkillCard
-            icon={Shield}
-            title="Cybersecurity"
-            description="Focused on secure software development and modern security practices."
-            skills={[
-              "Cryptography",
-              "Networking",
-              "Linux",
-              "OWASP",
-            ]}
-          />
-
-          <SkillCard
-            icon={Wrench}
-            title="Tools"
-            description="Development tools used throughout coding and project development."
-            skills={[
-              "Git",
-              "GitHub",
-              "VS Code",
-              "Spring Boot",
-            ]}
-          />
-
-        </div>
-
+    <Section id="skills" title="Skills">
+      <div className="grid gap-6 sm:grid-cols-2">
+        {skills.map((row) => {
+          const Icon = icons[row.group] ?? Code2;
+          return (
+            <div key={row.group} className={`p-7 last:sm:col-span-2 ${cardClass}`}>
+              <div className="flex items-center gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gold/10">
+                  <Icon size={26} className="text-gold" />
+                </span>
+                <h3 className="font-display text-3xl font-semibold">{row.group}</h3>
+              </div>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {row.items.map((item) => (
+                  <li key={item} className={chipClass}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 }

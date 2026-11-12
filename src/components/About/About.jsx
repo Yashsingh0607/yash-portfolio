@@ -1,176 +1,66 @@
-import {
-  GraduationCap,
-  Brain,
-  ShieldCheck,
-  Code2,
-} from "lucide-react";
+import Section from "../Section";
+import { highlights, journey, profile } from "../../data/portfolio";
+
+const facts = [
+  ["Studying", "B.Tech in Information Technology, GL Bajaj Institute of Technology and Management, 2024 to 2028"],
+  ["Focus", "Full-stack web development and cybersecurity"],
+  ["Based in", profile.location],
+];
 
 export default function About() {
   return (
-    <section
-  id="about"
- className="relative pt-32 pb-64"
->
-      <div className="mx-auto w-[92%] max-w-[1400px]">
-
-        {/* Heading */}
-
-        <div className="mb-16">
-          <p className="text-[14px] font-semibold uppercase tracking-[7px] text-[#D4A017]">
-            ABOUT ME
-          </p>
-        </div>
-
-        {/* Content */}
-
-        <div className="grid grid-cols-[31%_69%] gap-20 items-start">
-
-          {/* LEFT */}
-
-          <div className="mt-16">
-
-            <div
-              className="
-                rounded-[22px]
-                border
-                border-[#D4A017]/12
-                bg-[#090B10]
-                p-8
-                shadow-[0_15px_45px_rgba(0,0,0,.35)]
-              "
-            >
-              <h3
-                style={{ fontFamily: "var(--font-heading)" }}
-                className="mb-8 text-[2rem]"
-              >
-                Who Am I?
-              </h3>
-
-              <p className="mb-7 text-[17px] leading-9 text-[#B2B2B2]">
-                I'm <span className="text-white font-semibold">Yash Vardhan Singh</span>,
-                a Software Engineering student passionate about building
-                scalable software and solving challenging problems through
-                Data Structures & Algorithms.
-              </p>
-
-              <p className="text-[17px] leading-9 text-[#B2B2B2]">
-                Alongside full-stack development, I actively explore
-                Artificial Intelligence and Cybersecurity while constantly
-                improving my technical skills through projects and
-                continuous learning.
-              </p>
-
-            </div>
-
-          </div>
-
-          {/* RIGHT */}
-
-          <div className="pl-10">
-
-            <div className="grid grid-cols-2 gap-6">
-
-              {/* Education */}
-
-              <div className="rounded-[22px] border border-[#D4A017]/12 bg-[#090B10] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#D4A017]/35">
-
-                <GraduationCap
-                  size={42}
-                  className="mb-6 text-[#D4A017]"
-                />
-
-                <h4 className="mb-3 text-[30px] font-semibold">
-                  Education
-                </h4>
-
-                <p className="text-[16px] leading-8 text-[#A8A8A8]">
-                  B.Tech Information Technology
-                  <br />
-                  GL Bajaj Institute
-                  <br />
-                  2024 – 2028
-                </p>
-
-              </div>
-
-              {/* Development */}
-
-              <div className="rounded-[22px] border border-[#D4A017]/12 bg-[#090B10] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#D4A017]/35">
-
-                <Code2
-                  size={42}
-                  className="mb-6 text-[#D4A017]"
-                />
-
-                <h4 className="mb-3 text-[30px] font-semibold">
-                  Development
-                </h4>
-
-                <p className="text-[16px] leading-8 text-[#A8A8A8]">
-                  Java
-                  <br />
-                  React
-                  <br />
-                  Spring Boot
-                  <br />
-                  MongoDB
-                </p>
-
-              </div>
-
-              {/* AI */}
-
-              <div className="rounded-[22px] border border-[#D4A017]/12 bg-[#090B10] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#D4A017]/35">
-
-                <Brain
-                  size={42}
-                  className="mb-6 text-[#D4A017]"
-                />
-
-                <h4 className="mb-3 text-[30px] font-semibold">
-                  AI & ML
-                </h4>
-
-                <p className="text-[16px] leading-8 text-[#A8A8A8]">
-                  Machine Learning
-                  <br />
-                  Deep Learning
-                  <br />
-                  NLP
-                </p>
-
-              </div>
-
-              {/* Security */}
-
-              <div className="rounded-[22px] border border-[#D4A017]/12 bg-[#090B10] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#D4A017]/35">
-
-                <ShieldCheck
-                  size={42}
-                  className="mb-6 text-[#D4A017]"
-                />
-
-                <h4 className="mb-3 text-[30px] font-semibold">
-                  Security
-                </h4>
-
-                <p className="text-[16px] leading-8 text-[#A8A8A8]">
-                  Cybersecurity
-                  <br />
-                  Networking
-                  <br />
-                  Secure Development
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
+    <Section id="about" title="About">
+      <div className="max-w-[65ch] space-y-5 text-lg">
+        <p>
+          I'm a third-year B.Tech student in Information Technology at GL Bajaj, Greater Noida. Most
+          of my code is in Java and TypeScript.
+        </p>
+        <p className="text-mute">
+          This year I built ResolveAI, a support-ticket dashboard in Next.js, and a command-line file
+          encrypter in Java. I practise data structures and algorithms regularly, and I led a team at
+          Smart India Hackathon 2026.
+        </p>
       </div>
-    </section>
+
+      <ul className="mt-10 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
+        {highlights.map((h) => (
+          <li
+            key={h.label}
+            className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-5 text-center"
+          >
+            <p className="font-display text-4xl font-bold leading-none text-gold">{h.value}</p>
+            <p className="mt-2 text-xs uppercase tracking-[0.18em] text-mute">{h.label}</p>
+          </li>
+        ))}
+      </ul>
+
+      <dl className="mt-12 max-w-3xl">
+        {facts.map(([label, value]) => (
+          <div
+            key={label}
+            className="grid gap-1 border-t border-line py-4 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8"
+          >
+            <dt className="text-mute">{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <h3 className="mt-16 font-display text-3xl font-semibold">Journey</h3>
+      <ol className="mt-8 max-w-3xl space-y-8 border-l border-white/10 pl-8">
+        {journey.map((step) => (
+          <li key={step.title} className="relative">
+            <span
+              className="absolute -left-[38px] top-2 h-3 w-3 rotate-45 border border-gold bg-[#05060A] "
+              aria-hidden="true"
+            />
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-mute">{step.when}</p>
+            <p className="mt-1 font-display text-2xl font-semibold leading-tight">{step.title}</p>
+            <p className="mt-1 text-mute">{step.detail}</p>
+          </li>
+        ))}
+      </ol>
+
+    </Section>
   );
 }

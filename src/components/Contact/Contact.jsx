@@ -1,74 +1,47 @@
-import { Mail, Phone } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
+import Section from "../Section";
+import { links, profile } from "../../data/portfolio";
 
-import ContactCard from "./ContactCard";
+const rows = [
+  { label: "Email", value: profile.email, href: `mailto:${profile.email}` },
+  { label: "Phone", value: profile.phone, href: profile.phoneHref },
+  { label: "LinkedIn", value: "yash-vardhan-singh-49a6903b0", href: links.linkedin, external: true },
+  { label: "GitHub", value: "Yashsingh0607", href: links.github, external: true },
+];
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative py-36"
-    >
-      <div className="mx-auto w-[92%] max-w-[1400px]">
+    <Section id="contact" title="Contact">
+      <p className="max-w-[65ch] text-lg">
+        For opportunities, collaborations, or a conversation about engineering, email is the
+        quickest way to reach me.
+      </p>
 
-        <div className="grid grid-cols-[45%_55%] gap-16 items-center">
+      <a
+        href={`mailto:${profile.email}`}
+        className="mt-8 inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink transition-all hover:bg-gold-soft hover:shadow-[0_0_35px_rgba(212,160,23,.45)]"
+      >
+        Send an email
+      </a>
 
-          {/* LEFT */}
-
-          <div>
-
-            <p className="mb-3 text-[14px] font-semibold tracking-[8px] text-[#D4A017]">
-              CONTACT
-            </p>
-
-            <h2
-              style={{ fontFamily: "var(--font-heading)" }}
-              className="text-[60px] leading-tight"
-            >
-              Let's Build
-              <br />
-              Something
-              <span className="text-[#D4A017]"> Amazing.</span>
-            </h2>
-
-            <p className="mt-8 max-w-[520px] text-[18px] leading-9 text-[#A8A8A8]">
-              I'm always interested in internships,
-              collaborations, exciting projects and
-              opportunities to learn new technologies.
-            </p>
-
+      <dl className="mt-10 max-w-3xl">
+        {rows.map((row) => (
+          <div
+            key={row.label}
+            className="grid gap-1 border-t border-line py-4 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8"
+          >
+            <dt className="text-mute">{row.label}</dt>
+            <dd className="break-words">
+              <a
+                href={row.href}
+                {...(row.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="underline decoration-gold underline-offset-4 transition-colors hover:text-gold"
+              >
+                {row.value}
+              </a>
+            </dd>
           </div>
-
-          {/* RIGHT */}
-
-          <div className="space-y-6">
-
-            <ContactCard
-              icon={Mail}
-              title="Email"
-              value="yashvardhansingh234679@gmail.com"
-              href="mailto:yashvardhansingh234679@gmail.com"
-            />
-
-            <ContactCard
-              icon={FaLinkedin}
-              title="LinkedIn"
-              value="linkedin.com/in/yash-vardhan-singh-49a6903b0"
-              href="https://linkedin.com/in/yash-vardhan-singh-49a6903b0"
-            />
-
-            <ContactCard
-              icon={Phone}
-              title="Phone"
-              value="+91 9305125469"
-              href="tel:+9305125469"
-            />
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+        ))}
+      </dl>
+    </Section>
   );
 }
